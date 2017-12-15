@@ -1,5 +1,7 @@
 @extends('teachers.app')
 
+@section('title', 'Create a new teacher')
+
 @section('teachers_contents')
     <form method="post" action="store">
         {{ csrf_field() }}
