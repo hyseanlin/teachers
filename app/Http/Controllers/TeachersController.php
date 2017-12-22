@@ -17,7 +17,14 @@ class TeachersController extends Controller
 
     public function show($id)
     {
+        $t = Teacher::findOrFail($id);
+
+        /*
         $t = Teacher::find($id);
+        if (is_null($t)) {
+            abort(404);
+        }
+        */
 
         return view('teachers.show')->with('teacher', $t);
     }

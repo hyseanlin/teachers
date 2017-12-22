@@ -3,12 +3,28 @@
 @section('title', 'Create a new teacher')
 
 @section('teachers_contents')
-    <form method="post" action="store">
-        {{ csrf_field() }}
-        教師姓名：<input type="text" name="name"/><br/>
-        教師email：<input type="text" name="email"/><br/>
-        教師專業：<input type="text" name="professional"/><br/>
-        教師url：<input type="text" name="url" value="{{ 'http://www.cin.lhu.edu.tw/' }}}"/><br/>
-        <input type="submit" value="送出"/>
-    </form>
+    {!! Form::open(['url' => 'teachers/store']) !!}
+        <div class="form-group">
+            {!! Form::label('name', "老師的姓名：") !!}
+            {!! Form::text('name', null, ['class' => 'form-control']) !!} <br/>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('email', "老師的電子郵件信箱：") !!}
+            {!! Form::text('email', null, ['class' => 'form-control']) !!} <br/>
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('professional', "老師的專長：") !!}
+            {!! Form::text('professional', null, ['class' => 'form-control']) !!} <br/>
+        </div>
+        <div class="form-group">
+            {!! Form::label('url', "老師的網站：") !!}
+            {!! Form::text('url', 'http://www.cin.lhu.edu.tw/', ['class' => 'form-control']) !!} <br/>
+        </div>
+
+        <div class="form-group">
+        {!! Form::submit('送出', ['class' => 'btn btn-primary form-control']) !!}
+        </div>
+    {!! Form::close() !!}
 @stop
