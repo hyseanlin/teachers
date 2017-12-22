@@ -77,13 +77,14 @@
         </div>
     @endif
 
-    <div class="content">
-        @include('teachers.header')
+        <div class="content full-height">
+            @include('teachers.header')
 
             @yield('teachers_contents')
 
-        @include('teachers.footer')
-    </div>
+            @include('teachers.footer')
+        </div>
 </div>
+
 </body>
 </html>
