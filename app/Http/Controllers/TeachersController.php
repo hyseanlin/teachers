@@ -84,4 +84,11 @@ class TeachersController extends Controller
         return redirect('teachers');
     }
 
+    public function destroy($id)
+    {
+        $t = Teacher::findOrFail($id);
+        $t->delete();
+
+        return redirect('teachers');
+    }
 }

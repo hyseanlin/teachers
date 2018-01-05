@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Teacher extends Model
 {
@@ -16,7 +17,9 @@ class Teacher extends Model
         'employed_at'
     ];
 
-    protected $dates = ['employed_at'];
+    use SoftDeletes;
+
+    protected $dates = ['employed_at', 'deleted_at'];
 
     public function setEmployedAtAttribute($date) {
         $this->attributes['employed_at'] = Carbon::createFromFormat('Y-m-d', $date);

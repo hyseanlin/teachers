@@ -8,7 +8,7 @@
                 <th>姓名</th>
                 <th>電子郵件信箱</th>
                 <th>專長</th>
-                <th>檢視或編輯</th>
+                <th>操作</th>
             </tr>
         @forelse($teachers as $teacher)
             <tr>
@@ -18,6 +18,7 @@
                 <td>
                     <a href="{{ route('teachers.show', ['id' => $teacher->id])  }}">檢視</a></a>
                     <a href="{{ route('teachers.edit', ['id' => $teacher->id])  }}">編輯</a></a>
+                    <a href="{{ route('teachers.destroy', ['id' => $teacher->id])  }}">刪除</a></a>
                 </td>
             </tr>
         @empty

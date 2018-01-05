@@ -31,9 +31,13 @@ Route::get('/teachers/{id}/edit', 'TeachersController@edit')
     ->where('id', '[0-9]+')
     ->name('teachers.edit');
 
+Route::get('/teachers/{id}/delete', 'TeachersController@destroy')
+    ->where('id', '[0-9]+')
+    ->name('teachers.destroy');
+
 Route::post('/teachers/update', 'TeachersController@update');
 
-Route::resource('students', 'StudentsController');
+//Route::resource('students', 'StudentsController');
 
 /*
 Route::group(['as' => 'teachers.', 'prefix' => 'teachers'], function () {
