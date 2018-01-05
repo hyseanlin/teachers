@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Input;
 use \App\Teacher;
@@ -12,13 +13,16 @@ class TeachersController extends Controller
 
     public function index()
     {
-        return view('teachers.index')->with('teachers', Teacher::all());
+        return view('teachers.index')->with('teachers',
+            Teacher::latest('employed_at')->employed()->get());
     }
 
     public function show($id)
     {
         $t = Teacher::findOrFail($id);
 
+        //return dd($t->employed_at);
+        //return dd($t->employed_at->addDay(8)->format('Y-m-d'));
         /*
         $t = Teacher::find($id);
         if (is_null($t)) {
@@ -46,15 +50,28 @@ class TeachersController extends Controller
     public function store(Request $request)
     {
         $teacher_new = new Teacher;
-
         $teacher_new->name = $request->input('name');
         $teacher_new->email = $request->input('email');
         $teacher_new->professional = $request->input('professional');
         $teacher_new->url = $request->input('url');
-
+        $teacher_new->employed_at = $request->input('employed_at');
         $teacher_new->save();
 
+
         return redirect('teachers');
-        //return view('teachers.index')->with('teachers', Teacher::all());
     }
+
+    public function edit($id)
+    {
+        return view('teachers.edit')->with('teacher', Teacher::findOrFail($id));
+    }
+
+    public function update(Request $request)
+    {
+        $t = Teacher::findOrFail($request->input('id'));
+        $t->update($request->all());
+
+        return redirect('teachers');
+    }
+
 }

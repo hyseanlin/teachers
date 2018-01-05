@@ -22,6 +22,10 @@
             {!! Form::label('url', "老師的網站：") !!}
             {!! Form::text('url', 'http://www.cin.lhu.edu.tw/', ['class' => 'form-control']) !!} <br/>
         </div>
+        <div class="form-group">
+            {!! Form::label('employed_at', "聘僱日：") !!}
+            {!! Form::input('date', 'employed_at', Carbon\Carbon::now()->format('Y-m-d'), ['class' => 'form-control']) !!} <br/>
+        </div>
 
         <div class="form-group">
         {!! Form::submit('送出', ['class' => 'btn btn-primary form-control']) !!}

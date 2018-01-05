@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return '我是林學億，帳號PP033';
+    return view('welcome');
 });
 
 Route::get('/teachers', 'TeachersController@index')
@@ -26,6 +26,12 @@ Route::get('/teachers/create', 'TeachersController@create')
     ->name('teachers.create');
 
 Route::post('/teachers/store', 'TeachersController@store');
+
+Route::get('/teachers/{id}/edit', 'TeachersController@edit')
+    ->where('id', '[0-9]+')
+    ->name('teachers.edit');
+
+Route::post('/teachers/update', 'TeachersController@update');
 
 Route::resource('students', 'StudentsController');
 
