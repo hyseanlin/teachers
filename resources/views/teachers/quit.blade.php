@@ -1,14 +1,14 @@
 @extends('teachers.app')
 
-@section('title', 'LHU 所有老師')
+@section('title', 'LHU 離職老師')
 
 @section('teachers_contents')
-        <table border="1" align="center">
+        <table class="flex-center position-ref">
             <tr>
                 <th>姓名</th>
                 <th>電子郵件信箱</th>
                 <th>專長</th>
-                <th>操作</th>
+                <th>狀態</th>
             </tr>
         @forelse($teachers as $teacher)
             <tr>
@@ -20,7 +20,9 @@
                 </td>
             </tr>
         @empty
-            目前沒有老師
+            <tr>
+                <td colspan="4">目前沒有老師</td>
+            </tr>
         @endforelse
         </table>
 @stop

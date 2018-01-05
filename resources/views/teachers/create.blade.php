@@ -1,6 +1,6 @@
 @extends('teachers.app')
 
-@section('title', 'Create a new teacher')
+@section('title', 'LHU 新聘老師')
 
 @section('teachers_contents')
     {!! Form::open(['url' => 'teachers/store']) !!}

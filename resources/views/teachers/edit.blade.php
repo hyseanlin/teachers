@@ -1,6 +1,6 @@
 @extends('teachers.app')
 
-@section('title', 'Edit Teacher Info')
+@section('title', 'LHU 編輯老師資料')
 
 @section('teachers_contents')
 
