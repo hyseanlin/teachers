@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+//use \App\Http\Requests\CreateTeacherRequest;
 //use Illuminate\Support\Facades\Input;
 use \App\Teacher;
 
@@ -14,7 +15,7 @@ class TeachersController extends Controller
     public function index()
     {
         return view('teachers.index')->with('teachers',
-            Teacher::latest('employed_at')->employed()->get());
+            Teacher::latest('employed_at')->get());//->employed()->get());
     }
 
     public function show($id)
@@ -49,6 +50,15 @@ class TeachersController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'professional' => 'required',
+            'url' => 'required',
+            'employed_at' => 'required|date'
+            ]);
+
+        //Teacher::create($request->all());
         $teacher_new = new Teacher;
         $teacher_new->name = $request->input('name');
         $teacher_new->email = $request->input('email');
