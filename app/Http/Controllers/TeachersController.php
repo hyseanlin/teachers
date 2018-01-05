@@ -15,8 +15,15 @@ class TeachersController extends Controller
     public function index()
     {
         return view('teachers.index')->with('teachers',
-            Teacher::latest('employed_at')->get());//->employed()->get());
+            Teacher::latest('employed_at')->get());
     }
+
+    public function quit()
+    {
+        return view('teachers.quit')->with('teachers',
+            Teacher::onlyTrashed()->get());
+    }
+
 
     public function show($id)
     {
@@ -90,5 +97,13 @@ class TeachersController extends Controller
         $t->delete();
 
         return redirect('teachers');
+    }
+
+    public function restore($id)
+    {
+        $t = Teacher::onlyTrashed()->where('id', '=', $id);
+        $t->restore();
+
+        return redirect('teachers/quit');
     }
 }

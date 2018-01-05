@@ -16,9 +16,7 @@
                 <td><a href="{{ $teacher->email }}">{{ $teacher->email }}</a></td>
                 <td>{{ $teacher->professional  }}</td>
                 <td>
-                    <a href="{{ route('teachers.show', ['id' => $teacher->id])  }}">檢視</a></a>
-                    <a href="{{ route('teachers.edit', ['id' => $teacher->id])  }}">編輯</a></a>
-                    <a href="{{ route('teachers.destroy', ['id' => $teacher->id])  }}">離職</a></a>
+                    <a href="{{ route('teachers.restore', ['id' => $teacher->id])  }}">復職</a></a>
                 </td>
             </tr>
         @empty

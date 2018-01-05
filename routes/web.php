@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('/teachers', 'TeachersController@index')
     ->name('teachers.index');
 
+Route::get('/teachers/quit', 'TeachersController@quit')
+    ->name('teachers.quit');
+
 Route::get('/teachers/{id}', 'TeachersController@show')
     ->where('id', '[0-9]+')
     ->name('teachers.show');
@@ -34,6 +37,10 @@ Route::get('/teachers/{id}/edit', 'TeachersController@edit')
 Route::get('/teachers/{id}/delete', 'TeachersController@destroy')
     ->where('id', '[0-9]+')
     ->name('teachers.destroy');
+
+Route::get('/teachers/{id}/restore', 'TeachersController@restore')
+    ->where('id', '[0-9]+')
+    ->name('teachers.restore');
 
 Route::post('/teachers/update', 'TeachersController@update');
 
