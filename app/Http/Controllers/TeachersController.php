@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-//use \App\Http\Requests\CreateTeacherRequest;
+//use Illuminate\Http\Request;
+use \App\Http\Requests\TeacherRequest;
 //use Illuminate\Support\Facades\Input;
 use \App\Teacher;
 
@@ -55,8 +55,9 @@ class TeachersController extends Controller
     }
     */
 
-    public function store(Request $request)
+    public function store(TeacherRequest $request)
     {
+        /*
         $this->validate($request, [
             'name' => 'required|min:2',
             'email' => 'required|email',
@@ -64,6 +65,7 @@ class TeachersController extends Controller
             'url' => 'required',
             'employed_at' => 'required|date'
             ]);
+        */
 
         //Teacher::create($request->all());
         $teacher_new = new Teacher;
@@ -83,9 +85,9 @@ class TeachersController extends Controller
         return view('teachers.edit')->with('teacher', Teacher::findOrFail($id));
     }
 
-    public function update(Request $request)
+    public function update($id, TeacherRequest $request)
     {
-        $t = Teacher::findOrFail($request->input('id'));
+        $t = Teacher::findOrFail($id);
         $t->update($request->all());
 
         return redirect('teachers');

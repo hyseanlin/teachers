@@ -15,7 +15,7 @@
         @forelse($teachers as $teacher)
             <tr>
                 <td>{{ $teacher->name  }}</td>
-                <td><a href="{{ $teacher->email }}">{{ $teacher->email }}</a></td>
+                <td><a href="mailto:{{ $teacher->email }}">{{ $teacher->email }}</a></td>
                 <td>{{ $teacher->professional  }}</td>
                 <td>
                     <a href="{{ route('teachers.show', ['id' => $teacher->id])  }}">檢視</a></a>

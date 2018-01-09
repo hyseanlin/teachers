@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/teachers', 'TeachersController@index')
-    ->name('teachers.index');
 
 Route::get('/teachers/quit', 'TeachersController@quit')
     ->name('teachers.quit');
+
+Route::get('/teachers', 'TeachersController@index')
+    ->name('teachers.index');
+
 
 Route::get('/teachers/{id}', 'TeachersController@show')
     ->where('id', '[0-9]+')
@@ -28,7 +30,14 @@ Route::get('/teachers/{id}', 'TeachersController@show')
 Route::get('/teachers/create', 'TeachersController@create')
     ->name('teachers.create');
 
-Route::post('/teachers/store', 'TeachersController@store');
+Route::patch('/teachers/{id}', 'TeachersController@update')
+    ->where('id', '[0-9]+')
+    ->name('teachers.update');
+
+Route::post('/teachers', 'TeachersController@store')
+    ->where('id', '[0-9]+')
+    ->name('teachers.store');
+
 
 Route::get('/teachers/{id}/edit', 'TeachersController@edit')
     ->where('id', '[0-9]+')
@@ -41,8 +50,6 @@ Route::get('/teachers/{id}/delete', 'TeachersController@destroy')
 Route::get('/teachers/{id}/restore', 'TeachersController@restore')
     ->where('id', '[0-9]+')
     ->name('teachers.restore');
-
-Route::post('/teachers/update', 'TeachersController@update');
 
 //Route::resource('students', 'StudentsController');
 

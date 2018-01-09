@@ -6,7 +6,7 @@
         <table border="1" align="center">
                 <tr>
                         <td>姓名</td>
-                        <td>{{ $teacher->name }}</td>
+                        <td><a href="{{ $teacher->url  }}" target="_blank">{{ $teacher->name }}</a></td>
                 </tr>
                 <tr>
                         <td>Email </td>
@@ -15,10 +15,6 @@
                 <tr>
                         <td>專長</td>
                         <td>{{ $teacher->professional }}</td>
-                </tr>
-                <tr>
-                        <td>網頁</td>
-                        <td><a href="{{ $teacher->url  }}">{{ $teacher->url  }}</a></td>
                 </tr>
                 <tr>
                         <td>聘僱日</td>
