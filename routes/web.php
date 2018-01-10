@@ -51,7 +51,6 @@ Route::get('/teachers/{id}/restore', 'TeachersController@restore')
     ->where('id', '[0-9]+')
     ->name('teachers.restore');
 
-//Route::resource('students', 'StudentsController');
 
 /*
 Route::group(['as' => 'teachers.', 'prefix' => 'teachers'], function () {

@@ -5,6 +5,7 @@
 @section('teachers_contents')
         <table class="flex-center position-ref">
             <tr>
+                <th>到職日</th>
                 <th>姓名</th>
                 <th>電子郵件信箱</th>
                 <th>專長</th>
@@ -14,7 +15,8 @@
             </tr>
         @forelse($teachers as $teacher)
             <tr>
-                <td>{{ $teacher->name  }}</td>
+                <td>{{ Carbon\Carbon::parse($teacher->employed_at)->format('Y-m-d') }}</td>
+                <td><a href="{{ $teacher->url  }}" target="_blank">{{ $teacher->name }}</a></td>
                 <td><a href="mailto:{{ $teacher->email }}">{{ $teacher->email }}</a></td>
                 <td>{{ $teacher->professional  }}</td>
                 <td>
