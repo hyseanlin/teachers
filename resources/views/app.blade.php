@@ -84,11 +84,11 @@
     @endif
 
         <div class="content full-height">
-            @include('teachers.header')
+            @include('header')
 
-            @yield('teachers_contents')
+            @yield('lhu_contents')
 
-            @include('teachers.footer')
+            @include('footer')
         </div>
 </div>
 

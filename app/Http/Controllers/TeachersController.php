@@ -14,8 +14,8 @@ class TeachersController extends Controller
 
     public function index()
     {
-        return view('teachers.index')->with('teachers',
-            Teacher::latest('employed_at')->get());
+        return view('teachers.index')
+            ->with('teachers', Teacher::latest('employed_at')->get());
     }
 
     public function quit()

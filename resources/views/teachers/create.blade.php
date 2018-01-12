@@ -1,8 +1,8 @@
-@extends('teachers.app')
+@extends('app')
 
 @section('title', 'LHU 新聘老師')
 
-@section('teachers_contents')
+@section('lhu_contents')
     {!! Form::open(['url' => 'teachers']) !!}
         @include('teachers.form', ['submitButtonText' => '新增一位老師'])
     {!! Form::close() !!}

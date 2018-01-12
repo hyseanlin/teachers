@@ -1,8 +1,8 @@
-@extends('teachers.app')
+@extends('app')
 
 @section('title', 'LHU 離職老師')
 
-@section('teachers_contents')
+@section('lhu_contents')
         <table class="flex-center position-ref">
             <tr>
                 <th>到職日</th>

@@ -1,8 +1,8 @@
-@extends('teachers.app')
+@extends('app')
 
 @section('title', 'LHU 編輯老師資料')
 
-@section('teachers_contents')
+@section('lhu_contents')
 
     {!! Form::model($teacher, ['method'=>'PATCH','action'=>['TeachersController@update', $teacher->id]]) !!}
 

@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// teachers-related route
 Route::get('/teachers/quit', 'TeachersController@quit')
     ->name('teachers.quit');
 
@@ -50,6 +50,43 @@ Route::get('/teachers/{id}/delete', 'TeachersController@destroy')
 Route::get('/teachers/{id}/restore', 'TeachersController@restore')
     ->where('id', '[0-9]+')
     ->name('teachers.restore');
+
+
+// students-related route
+Route::get('/students/quit', 'StudentsController@quit')
+    ->name('students.quit');
+
+Route::get('/students', 'StudentsController@index')
+    ->name('students.index');
+
+
+Route::get('/students/{id}', 'StudentsController@show')
+    ->where('id', '[0-9]+')
+    ->name('students.show');
+
+Route::get('/students/create', 'StudentsController@create')
+    ->name('students.create');
+
+Route::patch('/students/{id}', 'StudentsController@update')
+    ->where('id', '[0-9]+')
+    ->name('students.update');
+
+Route::post('/students', 'StudentsController@store')
+    ->where('id', '[0-9]+')
+    ->name('students.store');
+
+
+Route::get('/students/{id}/edit', 'StudentsController@edit')
+    ->where('id', '[0-9]+')
+    ->name('students.edit');
+
+Route::get('/students/{id}/delete', 'StudentsController@destroy')
+    ->where('id', '[0-9]+')
+    ->name('students.destroy');
+
+Route::get('/students/{id}/restore', 'StudentsController@restore')
+    ->where('id', '[0-9]+')
+    ->name('students.restore');
 
 
 /*
