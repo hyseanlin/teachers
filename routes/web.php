@@ -59,11 +59,6 @@ Route::get('/students/quit', 'StudentsController@quit')
 Route::get('/students', 'StudentsController@index')
     ->name('students.index');
 
-
-Route::get('/students/{id}', 'StudentsController@show')
-    ->where('id', '[0-9]+')
-    ->name('students.show');
-
 Route::get('/students/create', 'StudentsController@create')
     ->name('students.create');
 
@@ -74,7 +69,6 @@ Route::patch('/students/{id}', 'StudentsController@update')
 Route::post('/students', 'StudentsController@store')
     ->where('id', '[0-9]+')
     ->name('students.store');
-
 
 Route::get('/students/{id}/edit', 'StudentsController@edit')
     ->where('id', '[0-9]+')

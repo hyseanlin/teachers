@@ -33,4 +33,9 @@ class Teacher extends Model
         $query->where('employed_at', '<=', Carbon::now());
     }
 
+    public function students() {
+
+        return $this->hasMany('App\Student');
+
+    }
 }

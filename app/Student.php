@@ -18,4 +18,10 @@ class Student extends Model
     use SoftDeletes;
 
     protected $dates = ['born_at', 'deleted_at'];
+
+    public function teacher()
+    {
+        return $this->belongsTo('App\Teacher');
+    }
+
 }

@@ -29,16 +29,10 @@ class TeachersController extends Controller
     {
         $t = Teacher::findOrFail($id);
 
-        //return dd($t->employed_at);
-        //return dd($t->employed_at->addDay(8)->format('Y-m-d'));
-        /*
-        $t = Teacher::find($id);
-        if (is_null($t)) {
-            abort(404);
-        }
-        */
 
-        return view('teachers.show')->with('teacher', $t);
+
+        return view('students.index')
+            ->with('students', $t->students);
     }
 
     public function create()

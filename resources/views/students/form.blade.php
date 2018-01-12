@@ -16,7 +16,15 @@
                 {!! Form::label('teacher_id', "指導老師：") !!}
                 <select name="teacher_id">
                         @foreach($teachers as $teacher)
-                                <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                @if (isset($student->teacher))
+                                        @if ($student->teacher->id == $teacher->id)
+                                                <option value="{{ $teacher->id }}" selected>{{ $teacher->name }}</option>
+                                        @else
+                                                <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                        @endif
+                                @else
+                                        <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                                @endif
                         @endforeach
                 </select>
         </div>
